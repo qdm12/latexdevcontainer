@@ -2,6 +2,8 @@
 
 **Ultimate Latex development container for Visual Studio Code**
 
+<img height="250" src="https://raw.githubusercontent.com/qdm12/latexdevcontainer/master/title.svg?sanitize=true">
+
 [![Build status](https://github.com/qdm12/latexdevcontainer/workflows/Buildx%20latest/badge.svg)](https://github.com/qdm12/latexdevcontainer/actions?query=workflow%3A%22Buildx+latest%22)
 [![Docker Pulls](https://img.shields.io/docker/pulls/qmcgaw/latexdevcontainer.svg)](https://hub.docker.com/r/qmcgaw/latexdevcontainer)
 [![Docker Stars](https://img.shields.io/docker/stars/qmcgaw/latexdevcontainer.svg)](https://hub.docker.com/r/qmcgaw/latexdevcontainer)

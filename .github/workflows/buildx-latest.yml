@@ -1,0 +1,37 @@
+name: Buildx latest
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - .devcontainer
+      - .github/workflows/buildx-pr.yml
+      - .github/workflows/buildx-release.yml
+      - .github/workflows/dockerhub-description.yml
+      - .github/workflows/labels.yml
+      - .vscode
+      - docker-compose.yml
+      - LICENSE
+      - README.md
+  schedule:
+    - cron: '0 9 * * 0'
+jobs:
+  buildx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Buildx setup
+        uses: crazy-max/ghaction-docker-buildx@v1
+      - name: Dockerhub login
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u qmcgaw --password-stdin 2>&1
+      - name: Buildx
+        run: |
+          docker buildx build \
+            --progress plain \
+            --platform=linux/amd64,linux/386,linux/arm64,linux/arm/v7,linux/arm/v6 \
+            --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+            --build-arg VCS_REF=`git rev-parse --short HEAD` \
+            --build-arg VERSION=alpine \
+            -t qmcgaw/latexdevcontainer \
+            --push \
+            .
+      - run: curl -X POST https://hooks.microbadger.com/images/qmcgaw/latexdevcontainer/TODO || exit 0

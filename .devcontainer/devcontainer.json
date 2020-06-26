@@ -1,0 +1,148 @@
+{
+    "name": "project-dev",
+    "dockerComposeFile": ["docker-compose.yml"],
+    "service": "vscode",
+    "runServices": ["vscode"],
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/workspace",
+    // "overrideCommand": "",
+    "extensions": [
+        "james-yu.latex-workshop",
+        // Git
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        // Other helpers
+        "shardulm94.trailing-spaces",
+        "Gruntfuggly.todo-tree",
+        "stkb.rewrap", // rewrap comments after n characters on one line
+        // Other
+        "spikespaz.vscode-smoothtype", // smooth cursor animation
+        "vscode-icons-team.vscode-icons",
+        "github.vscode-pull-request-github"
+    ],
+    "settings": {
+        // General settings
+        "files.eol": "\n",
+        // Docker
+        "remote.extensionKind": {
+            "ms-azuretools.vscode-docker": "workspace"
+        },
+        // Latex settings
+        "latex-workshop.chktex.enabled": true,
+        "latex-workshop.latex.clean.subfolder.enabled": true,
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "[latex]": {
+            "editor.formatOnSave": false
+        },
+        "latex-workshop.latex.recipes": [
+            {
+                "name": "latexmk 🔃",
+                "tools": ["latexindent", "latexmk"]
+            },
+            {
+                "name": "latexmk (latexmkrc)",
+                "tools": ["latexmk_rconly"]
+            },
+            {
+                "name": "latexmk (lualatex)",
+                "tools": ["lualatexmk"]
+            },
+            {
+                "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+                "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+            },
+            {
+                "name": "Compile Rnw files",
+                "tools": ["rnw2tex", "latexmk"]
+            },
+            {
+                "name": "Compile Jnw files",
+                "tools": ["jnw2tex", "latexmk"]
+            }
+        ],
+        "latex-workshop.latex.tools": [
+            {
+                "name": "latexindent",
+                "command": "latexindent",
+                "args": [
+                  "%DOC%.tex",
+                  "-o=%DOC%.tex",
+                  "-c",
+                  "%DIR%/",
+                  "%TMPFILE%",
+                  "-y=\"defaultIndent: '%INDENT%'\"",
+                  "--screenlog"
+                ]
+            },
+            {
+                "name": "latexmk",
+                "command": "latexmk",
+                "args": [
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "-pdf",
+                    "-outdir=%OUTDIR%",
+                    "%DOC%"
+                ]
+            },
+            {
+                "name": "lualatexmk",
+                "command": "latexmk",
+                "args": [
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "-lualatex",
+                    "-outdir=%OUTDIR%",
+                    "%DOC%"
+                ]
+            },
+            {
+                "name": "latexmk_rconly",
+                "command": "latexmk",
+                "args": [
+                    "%DOC%"
+                ]
+            },
+            {
+                "name": "pdflatex",
+                "command": "pdflatex",
+                "args": [
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "%DOC%"
+                ]
+            },
+            {
+                "name": "bibtex",
+                "command": "bibtex",
+                "args": [
+                    "%DOCFILE%"
+                ]
+            },
+            {
+                "name": "rnw2tex",
+                "command": "Rscript",
+                "args": [
+                    "-e",
+                    "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+                ]
+            },
+            {
+                "name": "jnw2tex",
+                "command": "julia",
+                "args": [
+                    "-e",
+                    "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+                ]
+            },
+            {
+                "name": "jnw2texmintex",
+                "command": "julia",
+                "args": [
+                    "-e",
+                    "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+                ]
+            }
+        ]
+    }
+}

@@ -19,13 +19,19 @@
     "settings": {
         // General settings
         "files.eol": "\n",
-        // Docker
-        "remote.extensionKind": {
-            "ms-azuretools.vscode-docker": "workspace"
-        },
         // Latex settings
         "latex-workshop.chktex.enabled": true,
         "latex-workshop.latex.clean.subfolder.enabled": true,
-        "latex-workshop.latex.autoClean.run": "onBuilt"
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "editor.formatOnSave": true,
+        "files.associations": {
+            "*.tex": "latex"
+        },
+        "latex-workshop.latexindent.args": [
+            "-c",
+            "%DIR%/",
+            "%TMPFILE%",
+            "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
+        ]
     }
 }

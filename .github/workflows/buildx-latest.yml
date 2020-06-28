@@ -34,4 +34,4 @@ jobs:
             -t qmcgaw/latexdevcontainer \
             --push \
             .
-      - run: curl -X POST https://hooks.microbadger.com/images/qmcgaw/latexdevcontainer/TODO || exit 0
+      - run: curl -X POST https://hooks.microbadger.com/images/qmcgaw/latexdevcontainer/xq5q57-42Lbxy5YlOvMG2gNnUD0= || exit 0

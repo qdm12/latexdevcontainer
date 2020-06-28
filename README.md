@@ -77,7 +77,7 @@
         ```Dockerfile
         FROM qmcgaw/latexdevcontainer
         USER root
-        apk add curl
+        RUN apk add texlive-full
         USER vscode
         ```
 

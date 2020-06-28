@@ -30,13 +30,13 @@ LABEL \
     org.opencontainers.image.description="Latex development container for Visual Studio Code Remote Containers development"
 USER root
 RUN apk add -q --update --progress --no-cache texlive
-RUN apk add -q --update --progress --no-cache perl-app-cpanminus perl-dev wget build-base && \
+RUN apk add -q --update --progress --no-cache --virtual deps perl-app-cpanminus perl-dev wget build-base && \
     cpanm -n -q Log::Log4perl && \
     cpanm -n -q Log::Dispatch::File && \
     cpanm -n -q YAML::Tiny && \
     cpanm -n -q File::HomeDir && \
     cpanm -n -q Unicode::GCString && \
-    apk del perl-app-cpanminus perl-dev build-base
+    apk del deps
 COPY --from=chktex --chown=1000:1000 /tmp/chktex /usr/local/bin/chktex
 COPY --chown=${USER_UID}:${USER_GID} shell/.zshrc-specific shell/.welcome.sh /home/${USERNAME}/
 COPY shell/.zshrc-specific shell/.welcome.sh /root/

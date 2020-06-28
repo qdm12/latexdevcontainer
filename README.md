@@ -18,11 +18,12 @@
 ## Features
 
 - Fastest way to code LaTex and produce a pdf file when saving your .tex file
-- Based on [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer) (Alpine 3.12) with:
-    - [texlive](https://www.tug.org/texlive)
-    - [chktex](https://www.nongnu.org/chktex)
-    - Perl modules for [latexindent](https://github.com/cmhughes/latexindent.pl)
-- Compatible with amd64, i686 (32 bit), ARM 64 bit, ARM 32 bit v6 and v7
+- Based on Alpine 3.12, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
+- Uses [texlive 2019](https://pkgs.alpinelinux.org/package/v3.12/community/x86/texlive)
+- Formatting on save using [latexindent](https://github.com/cmhughes/latexindent.pl)
+- Latex linting using [chktex](https://www.nongnu.org/chktex) built from source
+- Using the [LaTex-Workshop VScode extension](https://github.com/James-Yu/LaTeX-Workshop)
+- Compatible with amd64, ARM 64 bit, ARM 32 bit v6 and v7
 - Cross platform
     - Easily bind mount your SSH keys to use with **git**
     - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)

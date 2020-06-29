@@ -32,6 +32,8 @@
 - Extensible with docker-compose.yml
 - Minimal (uncompressed amd64) image size of 393MB
 
+[![Demo](https://i.imgur.com/4jFRIql.gif)](https://github.com/qdm12/latexdevcontainer)
+
 ## Requirements
 
 - [Docker](https://www.docker.com/products/docker-desktop) installed and running
@@ -55,6 +57,8 @@
 
 1. Open the command palette in Visual Studio Code (CTRL+SHIFT+P) and select `Remote-Containers: Open Folder in Container...` and choose your project directory
 
+[![Install](https://i.imgur.com/1NJHIbH.gif)](https://github.com/qdm12/latexdevcontainer#setup-for-a-project)
+
 ## Install LaTex packages
 
 If you need for example the package `lastpage`, open the integrated terminal in VS Code, select `zsh` and enter:
@@ -63,6 +67,8 @@ If you need for example the package `lastpage`, open the integrated terminal in 
 tlmgr install lastpage
 texhash
 ```
+
+[![Install packages](https://i.imgur.com/mBM2NYB.gif)](https://github.com/qdm12/latexdevcontainer#install-latex-packages)
 
 ## More
 

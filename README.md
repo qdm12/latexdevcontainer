@@ -25,7 +25,7 @@
 - Latex linting using [chktex](https://www.nongnu.org/chktex) built from source
 - Using the [LaTex-Workshop VScode extension](https://github.com/James-Yu/LaTeX-Workshop)
 - Comes with `tlmgr` to install more LaTex packages as needed
-- Compatible with amd64, ARM 64 bit, ARM 32 bit v6 and v7
+- Compatible with amd64, ~ARM 64 bit, ARM 32 bit v6 and v7~ (TeXLive not available on ARM, create an issue if you need it)
 - Cross platform
     - Easily bind mount your SSH keys to use with **git**
     - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)

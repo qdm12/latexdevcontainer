@@ -74,7 +74,12 @@ texhash
 
 ### devcontainer.json
 
-- You can change the `"postCreateCommand"` to be relevant to your situation.
+- You can change the `"postCreateCommand"` to be relevant to your situation. For example:
+
+    ```json
+    "postCreateCommand": "tlmgr install acronym pgf && texhash",
+    ```
+
 - You can change the extensions installed in the Docker image within the `"extensions"` array
 - Other Latex settings can be changed or added in the `"settings"` object.
 

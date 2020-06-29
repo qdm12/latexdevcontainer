@@ -5,7 +5,7 @@
     "runServices": ["vscode"],
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace",
-    // "overrideCommand": "",
+    "postCreateCommand": "",
     "extensions": [
         "james-yu.latex-workshop",
         // Git

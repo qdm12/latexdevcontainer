@@ -19,16 +19,18 @@
 
 - Fastest way to code LaTex and produce a pdf file when saving your .tex file
 - Based on Alpine 3.12, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
-- Uses [texlive 2019](https://pkgs.alpinelinux.org/package/v3.12/community/x86/texlive)
+- Uses [texlive 2020](https://www.tug.org/texlive/acquire-netinstall.html) basic scheme
+- Latex compilation to pdf with [latexmk](https://mg.readthedocs.io/latexmk.html)
 - Formatting on save using [latexindent](https://github.com/cmhughes/latexindent.pl)
 - Latex linting using [chktex](https://www.nongnu.org/chktex) built from source
 - Using the [LaTex-Workshop VScode extension](https://github.com/James-Yu/LaTeX-Workshop)
+- Comes with `tlmgr` to install more LaTex packages as needed
 - Compatible with amd64, ARM 64 bit, ARM 32 bit v6 and v7
 - Cross platform
     - Easily bind mount your SSH keys to use with **git**
     - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)
 - Extensible with docker-compose.yml
-- Uncompressed amd64 image size is 794MB
+- Minimal (uncompressed amd64) image size of 393MB
 
 ## Requirements
 
@@ -53,6 +55,15 @@
 
 1. Open the command palette in Visual Studio Code (CTRL+SHIFT+P) and select `Remote-Containers: Open Folder in Container...` and choose your project directory
 
+## Install LaTex packages
+
+If you need for example the package `lastpage`, open the integrated terminal in VS Code, select `zsh` and enter:
+
+```sh
+tlmgr install lastpage
+texhash
+```
+
 ## More
 
 ### devcontainer.json
@@ -76,9 +87,7 @@
 
         ```Dockerfile
         FROM qmcgaw/latexdevcontainer
-        USER root
-        RUN apk add texlive-full
-        USER vscode
+        RUN tlmgr install lastpage
         ```
 
     1. Modify `.devcontainer/docker-compose.yml` and add `build: .` in the vscode service.

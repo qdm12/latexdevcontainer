@@ -18,7 +18,7 @@
 ## Features
 
 - Fastest way to code LaTex and produce a pdf file when saving your .tex file
-- Based on Alpine 3.12, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
+- Based on Debian Buster Slim, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
 - Uses [texlive 2020](https://www.tug.org/texlive/acquire-netinstall.html) basic scheme
 - Latex compilation to pdf with [latexmk](https://mg.readthedocs.io/latexmk.html)
 - Formatting on save using [latexindent](https://github.com/cmhughes/latexindent.pl)
@@ -30,7 +30,7 @@
     - Easily bind mount your SSH keys to use with **git**
     - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)
 - Extensible with docker-compose.yml
-- Minimal (uncompressed amd64) image size of 393MB
+- Minimal (uncompressed amd64) image size of 485MB
 
 [![Demo](https://i.imgur.com/4jFRIql.gif)](https://github.com/qdm12/latexdevcontainer)
 

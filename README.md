@@ -70,6 +70,16 @@ texhash
 
 [![Install packages](https://i.imgur.com/mBM2NYB.gif)](https://github.com/qdm12/latexdevcontainer#install-latex-packages)
 
+## Update the Latex Docker image
+
+1. Pull the docker image
+
+    ```sh
+    docker pull qmcgaw/latexdevcontainer
+    ```
+
+1. Open the command palette in Visual Studio Code (CTRL+SHIFT+P) and select `Remote-Containers: Rebuild and Reopen in Container...`. ⚠️ this will erase your container shell history and custom latex packages you added on top of the base image.
+
 ## More
 
 ### devcontainer.json

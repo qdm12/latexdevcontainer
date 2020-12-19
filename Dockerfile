@@ -6,9 +6,8 @@ ARG CHKTEX_VERSION=1.7.6
 WORKDIR /tmp/workdir
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends g++ make wget
-RUN wget -q -O chktex.tar.gz http://download.savannah.gnu.org/releases/chktex/chktex-${CHKTEX_VERSION}.tar.gz && \
-    tar -xf chktex.tar.gz --strip-components=1 && \
-    rm chktex.tar.gz
+RUN wget -qO- http://download.savannah.gnu.org/releases/chktex/chktex-${CHKTEX_VERSION}.tar.gz | \
+    tar -xz --strip-components=1
 RUN ./configure && \
     make && \
     mv chktex /tmp && \
@@ -40,8 +39,8 @@ ARG TEXLIVE_VERSION=2020
 ARG TEXLIVE_MIRROR=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends wget gnupg cpanminus && \
-    wget -q -O texlive.tar.gz ${TEXLIVE_MIRROR}/install-tl-unx.tar.gz && \
-    tar -xf texlive.tar.gz --strip-components=1 && \
+    wget -qO- ${TEXLIVE_MIRROR}/install-tl-unx.tar.gz | \
+    tar -xz --strip-components=1 && \
     export TEXLIVE_INSTALL_NO_CONTEXT_CACHE=1 && \
     export TEXLIVE_INSTALL_NO_WELCOME=1 && \
     printf "selected_scheme ${SCHEME}\ninstopt_letter 0\ntlpdbopt_autobackup 0\ntlpdbopt_desktop_integration 0\ntlpdbopt_file_assocs 0\ntlpdbopt_install_docfiles ${DOCFILES}\ntlpdbopt_install_srcfiles ${SRCFILES}" > profile.txt && \

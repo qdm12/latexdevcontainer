@@ -2,16 +2,11 @@ name: Docker build
 on:
   pull_request:
     branches: [master]
-    paths-ignore:
-      - .devcontainer
-      - .github/workflows/buildx-latest.yml
-      - .github/workflows/buildx-release.yml
-      - .github/workflows/dockerhub-description.yml
-      - .github/workflows/labels.yml
-      - .vscode
-      - docker-compose.yml
-      - LICENSE
-      - README.md
+    paths:
+      - .github/workflows/buildx-pr.yml
+      - shell/**
+      - .dockerignore
+      - Dockerfile
 jobs:
   build:
     runs-on: ubuntu-latest

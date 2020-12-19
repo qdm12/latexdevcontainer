@@ -2,16 +2,11 @@ name: Buildx latest
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - .devcontainer
-      - .github/workflows/buildx-pr.yml
-      - .github/workflows/buildx-release.yml
-      - .github/workflows/dockerhub-description.yml
-      - .github/workflows/labels.yml
-      - .vscode
-      - docker-compose.yml
-      - LICENSE
-      - README.md
+    paths:
+      - .github/workflows/buildx-latest.yml
+      - shell/**
+      - .dockerignore
+      - Dockerfile
 jobs:
   buildx:
     runs-on: ubuntu-latest

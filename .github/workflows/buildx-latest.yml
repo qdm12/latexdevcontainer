@@ -12,8 +12,6 @@ on:
       - docker-compose.yml
       - LICENSE
       - README.md
-  schedule:
-    - cron: '0 9 * * 0'
 jobs:
   buildx:
     runs-on: ubuntu-latest

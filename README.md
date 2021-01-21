@@ -44,17 +44,15 @@
 
 ## Setup for a project
 
-1. Download this repository and put the `.devcontainer` directory in your project.
-   Alternatively, use this shell script from your project path
+1. Setup your configuration files
+    - With style 💯
 
-    ```sh
-    # we assume you are in /yourpath/myproject
-    mkdir .devcontainer
-    cd .devcontainer
-    wget -q https://raw.githubusercontent.com/qdm12/latexdevcontainer/master/.devcontainer/devcontainer.json
-    wget -q https://raw.githubusercontent.com/qdm12/latexdevcontainer/master/.devcontainer/docker-compose.yml
-    ```
+        ```sh
+        docker run -it --rm -v "/yourrepopath:/repository" qmcgaw/devtainr:v0.4.0 -dev latex -path /repository -name projectname
+        ```
 
+        Or use the [built binary](https://github.com/qdm12/devtainr#binary)
+    - Or manually: download this repository and put the [.devcontainer](.devcontainer) directory in your project.
 1. Open the command palette in Visual Studio Code (CTRL+SHIFT+P) and select `Remote-Containers: Open Folder in Container...` and choose your project directory
 
 [![Install](https://i.imgur.com/1NJHIbH.gif)](https://github.com/qdm12/latexdevcontainer#setup-for-a-project)

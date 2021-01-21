@@ -1,17 +1,19 @@
-version: "3.7"
+version: "3"
 
 services:
   vscode:
-    image: qmcgaw/latexdevcontainer
+    build: .
+    image: latexdevcontainer
     volumes:
       - ../:/workspace
-      - ~/.ssh:/home/vscode/.ssh:ro
-      - ~/.ssh:/root/.ssh:ro
+      # Docker socket to access Docker server
       - /var/run/docker.sock:/var/run/docker.sock
+      # SSH directory
+      - ~/.ssh:/home/vscode/.ssh
+      - ~/.ssh:/root/.ssh
+      # Git config
+      - ~/.gitconfig:/home/districter/.gitconfig
+      - ~/.gitconfig:/root/.gitconfig
     environment:
       - TZ=
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - seccomp:unconfined
     entrypoint: zsh -c "while sleep 1000; do :; done"

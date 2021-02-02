@@ -18,19 +18,20 @@
 ## Features
 
 - Fastest way to code LaTex and produce a pdf file when saving your .tex file
+- Uses [texlive 2020](https://www.tug.org/texlive/acquire-netinstall.html)
 - Based on Debian Buster Slim, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
-- Uses [texlive 2020](https://www.tug.org/texlive/acquire-netinstall.html) basic scheme
+- Basic texlive scheme installed
+- Comes with `tlmgr` to install more LaTex packages as needed
 - Latex compilation to pdf with [latexmk](https://mg.readthedocs.io/latexmk.html)
 - Formatting on save using [latexindent](https://github.com/cmhughes/latexindent.pl)
 - Latex linting using [chktex](https://www.nongnu.org/chktex) built from source
 - Using the [LaTex-Workshop VScode extension](https://github.com/James-Yu/LaTeX-Workshop)
-- Comes with `tlmgr` to install more LaTex packages as needed
 - Compatible with amd64, ~ARM 64 bit, ARM 32 bit v6 and v7~ (TeXLive not available on ARM, create an issue if you need it)
 - Cross platform
     - Easily bind mount your SSH keys to use with **git**
     - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)
 - Extensible with docker-compose.yml
-- Minimal (uncompressed amd64) image size of 485MB
+- Minimal uncompressed image size of 467MB
 
 [![Demo](https://i.imgur.com/4jFRIql.gif)](https://github.com/qdm12/latexdevcontainer)
 

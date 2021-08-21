@@ -22,7 +22,7 @@
 - Based on Debian Buster Slim, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
 - **Two Docker images**:
     - `qmcgaw/latexdevcontainer:latest` (default) which uses the TexLive basic scheme and has an uncompressed image size of 467MB
-    - `qmcgaw/latexdevcontainer::latest-full` which uses the TexLive full scheme and has an uncompressed image size of 4.2GB - most packages you would need are already installed.
+    - `qmcgaw/latexdevcontainer:latest-full` which uses the TexLive full scheme and has an uncompressed image size of 4.2GB - most packages you would need are already installed.
 - Comes with `tlmgr` to install more LaTex packages as needed
 - Latex compilation to pdf with [latexmk](https://mg.readthedocs.io/latexmk.html)
 - Formatting on save using [latexindent](https://github.com/cmhughes/latexindent.pl)

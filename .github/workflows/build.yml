@@ -81,8 +81,3 @@ jobs:
             SCHEME=scheme-full
           tags: qmcgaw/latexdevcontainer:${{ steps.vars.outputs.version }}-full
           push: true
-
-      - if: github.event.ref == 'refs/heads/master'
-        name: Microbadger hook
-        run: curl -X POST https://hooks.microbadger.com/images/qmcgaw/latexdevcontainer/xq5q57-42Lbxy5YlOvMG2gNnUD0=
-        continue-on-error: true

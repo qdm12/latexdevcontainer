@@ -7,8 +7,6 @@
 [![Build status](https://github.com/qdm12/latexdevcontainer/workflows/CI/badge.svg)](https://github.com/qdm12/latexdevcontainer/actions?query=workflow%3ACI)
 [![Docker Pulls](https://img.shields.io/docker/pulls/qmcgaw/latexdevcontainer.svg)](https://hub.docker.com/r/qmcgaw/latexdevcontainer)
 [![Docker Stars](https://img.shields.io/docker/stars/qmcgaw/latexdevcontainer.svg)](https://hub.docker.com/r/qmcgaw/latexdevcontainer)
-[![Image size](https://images.microbadger.com/badges/image/qmcgaw/latexdevcontainer.svg)](https://microbadger.com/images/qmcgaw/latexdevcontainer)
-[![Image version](https://images.microbadger.com/badges/version/qmcgaw/latexdevcontainer.svg)](https://microbadger.com/images/qmcgaw/latexdevcontainer)
 
 [![Join Slack channel](https://img.shields.io/badge/slack-@qdm12-yellow.svg?logo=slack)](https://join.slack.com/t/qdm12/shared_invite/enQtOTE0NjcxNTM1ODc5LTYyZmVlOTM3MGI4ZWU0YmJkMjUxNmQ4ODQ2OTAwYzMxMTlhY2Q1MWQyOWUyNjc2ODliNjFjMDUxNWNmNzk5MDk)
 [![GitHub last commit](https://img.shields.io/github/last-commit/qdm12/latexdevcontainer.svg)](https://github.com/qdm12/latexdevcontainer/issues)

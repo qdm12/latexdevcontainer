@@ -1,4 +1,5 @@
 ARG DEBIAN_VERSION=bullseye-slim
+ARG BASEDEV_VERSION=v0.9.0
 
 FROM debian:${DEBIAN_VERSION} AS chktex
 ARG CHKTEX_VERSION=1.7.6
@@ -12,7 +13,7 @@ RUN ./configure && \
     mv chktex /tmp && \
     rm -r *
 
-FROM qmcgaw/basedevcontainer:debian
+FROM qmcgaw/basedevcontainer:${BASEDEV_VERSION}-debian
 ARG BUILD_DATE
 ARG COMMIT
 ARG VERSION=local

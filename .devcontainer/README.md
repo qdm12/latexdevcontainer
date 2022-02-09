@@ -9,14 +9,20 @@ It works on Linux, Windows and OSX.
 - [VS code](https://code.visualstudio.com/download) installed
 - [VS code remote containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed
 - [Docker](https://www.docker.com/products/docker-desktop) installed and running
-    - If you don't use Linux or WSL 2, share your home directory `~/` and the directory of your project with Docker Desktop
 - [Docker Compose](https://docs.docker.com/compose/install/) installed
-- Ensure your host has the following and that they are accessible by Docker:
-    - `~/.ssh` directory
-    - `~/.gitconfig` file (can be empty)
 
 ## Setup
 
+1. Create the following files on your host if you don't have them:
+
+    ```sh
+    touch ~/.gitconfig ~/.zsh_history
+    ```
+
+    Note that the development container will create the empty directories `~/.docker` and `~/.ssh` if you don't have them.
+
+1. **For Docker on OSX or Windows without WSL**: ensure your home directory `~` is accessible by Docker.
+1. **For Docker on Windows without WSL:** if you want to use SSH keys, bind mount your host `~/.ssh` to `/tmp/.ssh` instead of `~/.ssh` by changing the `volumes` section in the [docker-compose.yml](docker-compose.yml).
 1. Open the command palette in Visual Studio Code (CTRL+SHIFT+P).
 1. Select `Remote-Containers: Open Folder in Container...` and choose the project directory.
 
@@ -28,12 +34,8 @@ You can make changes to the [Dockerfile](Dockerfile) and then rebuild the image.
 
 ```Dockerfile
 FROM qmcgaw/latexdevcontainer
-USER root
 RUN apk add curl
-USER vscode
 ```
-
-Note that you may need to use `USER root` to build as root, and then change back to `USER vscode`.
 
 To rebuild the image, either:
 
@@ -50,4 +52,19 @@ You can bind mount a shell script to `/home/vscode/.welcome.sh` to replace the [
 
 ### Publish a port
 
-To access a port from your host to your development container, publish a port in [docker-compose.yml](docker-compose.yml).
+To access a port from your host to your development container, publish a port in [docker-compose.yml](docker-compose.yml). You can also now do it directly with VSCode without restarting the container.
+
+### Run other services
+
+1. Modify [docker-compose.yml](docker-compose.yml) to launch other services at the same time as this development container, such as a test database:
+
+    ```yml
+      database:
+        image: postgres
+        restart: always
+        environment:
+          POSTGRES_PASSWORD: password
+    ```
+
+1. In [devcontainer.json](devcontainer.json), change the line `"runServices": ["vscode"],` to `"runServices": ["vscode", "database"],`.
+1. In the VS code command palette, rebuild the container.

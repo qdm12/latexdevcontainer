@@ -17,9 +17,6 @@ FROM qmcgaw/basedevcontainer:${BASEDEV_VERSION}-debian
 ARG BUILD_DATE
 ARG COMMIT
 ARG VERSION=local
-ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=1000
 LABEL \
     org.opencontainers.image.authors="quentin.mcgaw@gmail.com" \
     org.opencontainers.image.created=$BUILD_DATE \
@@ -30,7 +27,6 @@ LABEL \
     org.opencontainers.image.source="https://github.com/qdm12/latexdevcontainer" \
     org.opencontainers.image.title="Latex Dev container Alpine" \
     org.opencontainers.image.description="Latex development container for Visual Studio Code Remote Containers development"
-USER root
 WORKDIR /tmp/texlive
 ARG SCHEME=scheme-basic
 ARG DOCFILES=0
@@ -45,7 +41,6 @@ RUN apt-get update -y && \
     export TEXLIVE_INSTALL_NO_WELCOME=1 && \
     printf "selected_scheme ${SCHEME}\ninstopt_letter 0\ntlpdbopt_autobackup 0\ntlpdbopt_desktop_integration 0\ntlpdbopt_file_assocs 0\ntlpdbopt_install_docfiles ${DOCFILES}\ntlpdbopt_install_srcfiles ${SRCFILES}" > profile.txt && \
     perl install-tl -profile profile.txt --location ${TEXLIVE_MIRROR} && \
-    chown -R ${USER_UID}:${USER_GID} /usr/local/texlive && \
     # Cleanup
     cd && \
     apt-get clean autoclean && \
@@ -66,13 +61,11 @@ RUN apt-get update -y && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
-USER ${USERNAME}
 RUN tlmgr install latexindent latexmk && \
     texhash && \
     rm /usr/local/texlive/${TEXLIVE_VERSION}/texmf-var/web2c/*.log && \
     rm /usr/local/texlive/${TEXLIVE_VERSION}/tlpkg/texlive.tlpdb.main.*
-COPY --from=chktex --chown=${USER_UID}:${USER_GID} /tmp/chktex /usr/local/bin/chktex
-COPY --chown=${USER_UID}:${USER_GID} shell/.zshrc-specific shell/.welcome.sh /home/${USERNAME}/
+COPY --from=chktex /tmp/chktex /usr/local/bin/chktex
 COPY shell/.zshrc-specific shell/.welcome.sh /root/
 # Verify binaries work and have the right permissions
 RUN tlmgr version && \

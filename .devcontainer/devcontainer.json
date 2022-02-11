@@ -27,6 +27,7 @@
         "files.associations": {
             "*.tex": "latex"
         },
+        "latex-workshop.latexindent.path": "latexindent",
         "latex-workshop.latexindent.args": [
             "-c",
             "%DIR%/",

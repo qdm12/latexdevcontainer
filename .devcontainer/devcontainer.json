@@ -31,7 +31,7 @@
             "-c",
             "%DIR%/",
             "%TMPFILE%",
-            "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
+            "-y=defaultIndent: '%INDENT%'"
         ]
     }
 }

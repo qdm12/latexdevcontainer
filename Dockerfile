@@ -46,7 +46,9 @@ RUN apt-get update -y && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/texlive /usr/local/texlive/${TEXLIVE_VERSION}/*.log
-ENV PATH="${PATH}:/usr/local/texlive/${TEXLIVE_VERSION}/bin/x86_64-linux"
+ENV PATH ${PATH}:\
+/usr/local/texlive/${TEXLIVE_VERSION}/bin/x86_64-linux:\
+/usr/local/texlive/${TEXLIVE_VERSION}/bin/aarch64-linux
 WORKDIR /workspace
 # Latexindent dependencies
 RUN apt-get update -y && \

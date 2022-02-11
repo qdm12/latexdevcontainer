@@ -17,7 +17,8 @@
 
 - Fastest way to code LaTex and produce a pdf file when saving your .tex file
 - Uses [texlive 2021](https://www.tug.org/texlive/acquire-netinstall.html)
-- Based on Debian Buster Slim, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
+- Based on Debian Bullseye Slim, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
+- Compatible with `amd64` and `aarch64`
 - **Two Docker images**:
     - `qmcgaw/latexdevcontainer:latest` (default) which uses the TexLive basic scheme and has an uncompressed image size of 467MB
     - `qmcgaw/latexdevcontainer:latest-full` which uses the TexLive full scheme and has an uncompressed image size of 4.2GB - most packages you would need are already installed.

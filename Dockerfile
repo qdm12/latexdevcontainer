@@ -31,7 +31,7 @@ WORKDIR /tmp/texlive
 ARG SCHEME=scheme-basic
 ARG DOCFILES=0
 ARG SRCFILES=0
-ARG TEXLIVE_VERSION=2021
+ARG TEXLIVE_VERSION=2022
 ARG TEXLIVE_MIRROR=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends wget gnupg cpanminus && \

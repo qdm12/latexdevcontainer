@@ -20,7 +20,8 @@
         // General settings
         "files.eol": "\n",
         // Latex settings
-        "latex-workshop.chktex.enabled": true,
+        "latex-workshop.linting.chktex.enabled": true,
+        "latex-workshop.linting.chktex.exec.path": "chktex",
         "latex-workshop.latex.clean.subfolder.enabled": true,
         "latex-workshop.latex.autoClean.run": "onBuilt",
         "editor.formatOnSave": true,

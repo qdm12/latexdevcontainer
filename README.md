@@ -90,8 +90,8 @@ texhash
     "postCreateCommand": "tlmgr install acronym pgf && texhash",
     ```
 
-- You can change the extensions installed in the Docker image within the `"extensions"` array
-- Other Latex settings can be changed or added in the `"settings"` object.
+- You can change the extensions installed in the Docker image within the `"customizations/vscode/extensions"` array
+- Other Latex settings can be changed or added in the `"customizations/vscode/settings"` object.
 
 ### Development image
 

@@ -16,7 +16,7 @@
 ## Features
 
 - Fastest way to code LaTex and produce a pdf file when saving your .tex file
-- Uses [texlive 2021](https://www.tug.org/texlive/acquire-netinstall.html)
+- Uses [texlive 2023](https://www.tug.org/texlive/acquire-netinstall.html)
 - Based on Debian Bullseye Slim, using [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer)
 - Compatible with `amd64` and `aarch64`
 - **Two Docker images**:

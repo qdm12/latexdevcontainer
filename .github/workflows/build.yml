@@ -59,7 +59,7 @@ jobs:
           fi
 
       - name: Build and push scheme-basic image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           platforms: ${{ steps.vars.outputs.platforms }}
           build-args: |
@@ -71,7 +71,7 @@ jobs:
           push: true
 
       - name: Build and push scheme-full image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           platforms: ${{ steps.vars.outputs.platforms }}
           build-args: |

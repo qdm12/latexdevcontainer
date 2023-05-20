@@ -62,7 +62,7 @@
 ### Run inside GitHub Codespaces
 
 Remember, if you are running this devcontainer inside a GitHub Codespace, you have to uncomment the following
-linse from the `docker-compose.yml` file:
+line from `.devcontainer/docker-compose.yml`:
 
 ```diff
 version: "3.2"

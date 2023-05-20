@@ -94,7 +94,7 @@ services:
 ```
 
 You have to do this because inside a Codespace there are no files like `~/.ssh:/root/.ssh`
-or `~/.zsh_history:/root/.zsh_history:z`
+or `~/.zsh_history`
 
 ## Install LaTex packages
 

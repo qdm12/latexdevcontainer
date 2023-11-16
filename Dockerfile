@@ -63,7 +63,7 @@ RUN apt-get update -y && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
-RUN tlmgr install latexindent latexmk && \
+RUN tlmgr install latexindent latexmk texliveonfly && \
     texhash && \
     rm /usr/local/texlive/${TEXLIVE_VERSION}/texmf-var/web2c/*.log && \
     rm /usr/local/texlive/${TEXLIVE_VERSION}/tlpkg/texlive.tlpdb.main.*

@@ -23,6 +23,7 @@
                 "files.eol": "\n",
                 // Latex settings
                 "latex-workshop.linting.chktex.enabled": true,
+                "latex-workshop.latex.recipe.default": "latexmk",
                 "latex-workshop.linting.chktex.exec.path": "chktex",
                 "latex-workshop.latex.clean.subfolder.enabled": true,
                 "latex-workshop.latex.autoClean.run": "onBuilt",
@@ -30,6 +31,58 @@
                 "files.associations": {
                     "*.tex": "latex"
                 },
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk",
+                        "tools": [
+                            "texliveonfly",
+                            "latexmk"
+                        ]
+                    },
+                    {
+                        "name": "latexmk (lualatex)",
+                        "tools": [
+                            "texliveonfly-lualatex",
+                            "latexmk-lualatex"
+                        ]
+                    }
+                ],
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "texliveonfly",
+                        "command": "texliveonfly",
+                        "args": [
+                            "%DOC%.tex"
+                        ]
+                    },
+                    {
+                        "name": "texliveonfly-lualatex",
+                        "command": "texliveonfly",
+                        "args": [
+                            "--compiler=lualatex", // if you want to have the shell-escape flag
+                            "%DOC%.tex"
+                        ]
+                    },
+                    {
+                        "name": "latexmk",
+                        "command": "latexmk",
+                        "args": [
+                            "-synctex=1", // if you want to have the shell-escape flag
+                            "-interaction=nonstopmode",
+                            "%DOC%.tex"
+                        ]
+                    },
+                    {
+                        "name": "latexmk-lualatex",
+                        "command": "latexmk",
+                        "args": [
+                            "-lualatex",
+                            "-synctex=1", // if you want to have the shell-escape flag
+                            "-interaction=nonstopmode",
+                            "%DOC%.tex"
+                        ]
+                    }
+                ],
                 "latex-workshop.latexindent.path": "latexindent",
                 "latex-workshop.latexindent.args": [
                     "-c",

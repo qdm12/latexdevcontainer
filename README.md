@@ -59,6 +59,43 @@
 
 [![Install](https://i.imgur.com/1NJHIbH.gif)](https://github.com/qdm12/latexdevcontainer#setup-for-a-project)
 
+### Run inside GitHub Codespaces
+
+Remember, if you are running this devcontainer inside a GitHub Codespace, you have to uncomment the following
+line from `.devcontainer/docker-compose.yml`:
+
+```diff
+version: "3.2"
+
+services:
+  vscode:
+    build: .
+    image: latexdevcontainer
+    volumes:
+      - ../:/workspace
+      # Docker socket to access Docker server
+      - /var/run/docker.sock:/var/run/docker.sock
+      # SSH directory
+-     - ~/.ssh:/root/.ssh
++     # - ~/.ssh:/root/.ssh
+      # For Windows without WSL, a copy will be made
+      # from /tmp/.ssh to ~/.ssh to fix permissions
+-     - ~/.ssh:/tmp/.ssh:ro
++     # - ~/.ssh:/tmp/.ssh:ro
+      # Shell history persistence
+-     - ~/.zsh_history:/root/.zsh_history:z
++     # - ~/.zsh_history:/root/.zsh_history:z
+      # Git config
+-     - ~/.gitconfig:/root/.gitconfig
++     # - ~/.gitconfig:/root/.gitconfig
+    environment:
+      - TZ=
+    entrypoint: ["zsh", "-c", "while sleep 1000; do :; done"]
+```
+
+You have to do this because inside a Codespace there are no files like `~/.ssh:/root/.ssh`
+or `~/.zsh_history`
+
 ## Install LaTex packages
 
 If you need for example the package `lastpage`, open the integrated terminal in VS Code, select `zsh` and enter:
